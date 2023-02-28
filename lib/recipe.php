@@ -1,7 +1,20 @@
 <?php
 
-$recipes = [
-    ['title' => 'Mousse au chocolat', 'description' => 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Placeat, quaerat corrupti ipsum', 'image' => '1-chocolate-au-mousse.jpg'],
-    ['title' => 'Gratin dauphinois', 'description' => 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Placeat, quaerat corrupti ipsum', 'image' => '2-gratin-dauphinois.jpg'],
-    ['title' => 'Salade de chevre', 'description' => 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Placeat, quaerat corrupti ipsum', 'image' => '3-salade.jpg'],
-];
+
+function getRecipeById(PDO $pdo,int $id) {
+    $query = $pdo->prepare("SELECT * FROM recipes WHERE id = :id");
+    $query->bindParam(':id',$id, PDO::PARAM_INT);
+    $query->execute();
+    return $query->fetch();
+}
+
+
+function getRecipeImage(string|null $image) {
+    if ($image === null) {
+
+        return _ASSETS_IMG_PATH_.'recipe_default.jpg';
+      
+      } else {
+        return  _RECIPES_IMG_PATH_.$image;
+      }
+}
