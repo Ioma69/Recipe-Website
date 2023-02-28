@@ -25,7 +25,7 @@
     </div>
 
     <?php
-    require('templates/footer.php');
+    require('templates/footer.php');;
     ?>
 
 
