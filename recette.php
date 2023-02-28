@@ -46,11 +46,11 @@ if ($recipe) {
     
     <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
       <h2>Instructions</h2>
-      <ul class="list-group">
+      <ol class="list-group">
         <?php foreach ($instructions as $key => $instruction) { ?>
           <li class="list-group-item"><?=$instruction;?></li>
           <?php } ?>
-      </ul>
+      </ol>
     </div>
 
     <?php } else { ?>
