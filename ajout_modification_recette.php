@@ -1,5 +1,11 @@
     <?php
     require('templates/header.php');
+
+
+    if(!isset($_SESSION['user'])) {
+        header('location: login.php');
+    }
+    
     require_once('lib/tools.php');
     require_once('lib/recipe.php');
     require_once('lib/category.php');
